@@ -6,7 +6,15 @@ const path = require('path');
 
 app.use(express.static("public"))
 
-app.get('/notes', (req, res) => res.send('/public/notes.html'));
+app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, '/public/notes.html')));
+app.post('/api/reviews', (req, res) => {
+    // Inform the client that their POST request was received
+    res.json(`${req.method} request received to add a review`);
+
+    // Log our request to the terminal
+    console.info(`${req.method} request received to add a review`);
+});
+
 
 app.get('/', (req, res) => res.send('/public/index.html'));
 
