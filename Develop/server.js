@@ -4,8 +4,9 @@ const PORT = 3001;
 const path = require('path');
 
 
+app.use(express.static("public"))
 
-app.get('/notes', (req, res) => res.send('/public/noteshtml'));
+app.get('/notes', (req, res) => res.send('/public/notes.html'));
 
 app.get('/', (req, res) => res.send('/public/index.html'));
 
