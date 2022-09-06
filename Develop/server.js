@@ -5,7 +5,7 @@ const path = require('path');
 const fs = require('fs');
 const notes = require('./db/notes');
 const uuid = require('./uuid');
-
+// all required packages and files used for the application.
 
 // Middleware for parsing JSON and urlencoded form data
 app.use(express.json());
@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 
 
 app.use(express.static('public'));
-
+//grabs the public static folder
 
 app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/notes.html'));
@@ -50,7 +50,7 @@ app.get('/api/notes', (req, res) => {
 //     }));
 
 
-
+// when /api/notes is called saves object newNote to .db/notes.json
 app.post('/api/notes', (req, res) => {
     console.info(`${req.method} request received to add a note`);
     const { title, text } = req.body;
@@ -109,7 +109,7 @@ app.post('/api/notes', (req, res) => {
 
 
 
-
+//app heroku listening on PORT (3001)
 
 app.listen(PORT, () =>
     console.log(`serving all static files from public on port ${PORT}!`)
