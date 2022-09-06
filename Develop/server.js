@@ -3,6 +3,7 @@ const app = express();
 const PORT = 3001;
 const path = require('path');
 const fs = require('fs');
+const notes = require('./db/notes.json');
 
 
 
@@ -17,14 +18,11 @@ app.use(express.static('public'));
 app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/notes.html'));
 });
-
 app.get('/api/notes', (req, res) => {
-    // Inform the client
-    res.json(`${req.method} request received to get notes`);
-
-    // Log our request to the terminal
-    console.info(`${req.method} request received to get notes`);
+    console.info(`${req.method} request receiived to get notes`);
+    return res.json(notes);
 });
+// res.json(`${req.method} request received`);
 
 app.post('/api/notes', (req, res) => {
     // Inform the client that their POST request was received
