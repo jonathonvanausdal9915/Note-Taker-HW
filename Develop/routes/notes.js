@@ -56,6 +56,7 @@ notes.post('/notes', (req, res) => {
             } else {
                 // Convert string into JSON object
                 const parsedNotes = JSON.parse(data);
+                console.log(parsedNotes);
 
                 // Add a new notes
                 parsedNotes.push(newNote);
@@ -68,6 +69,7 @@ notes.post('/notes', (req, res) => {
                     writeErr ?
                     console.error(writeErr) :
                     console.info('Successfully updated notes!')
+
                 );
             }
         });
