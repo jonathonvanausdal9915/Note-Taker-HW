@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3001;
 const path = require('path');
-const notes = require('./routes/notes')
+const notes = require('./routes/notes');
 const fs = require('fs');
 // all required packages and files used for the application.
 
